@@ -25,9 +25,9 @@ valid_metric: Recall@10
 
 # KGCN 하이퍼파라미터
 embedding_size: 64
-learning_rate: 0.0002
+learning_rate: 0.002
 reg_weight: 1e-5
 neighbor_sample_size: 8
 n_iter: 1
 aggregator: sum
-stopping_step: 5
+stopping_step: 10

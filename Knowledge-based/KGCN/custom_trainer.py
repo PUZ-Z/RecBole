@@ -1,7 +1,7 @@
-from recbole.trainer import Trainer
+from recbole.trainer import KGTrainer
 import torch
 
-class LossEarlyStopTrainer(Trainer):
+class LossEarlyStopTrainer(KGTrainer):
     def __init__(self, config, model):
         super().__init__(config, model)
         self.best_valid_loss = float('inf')
