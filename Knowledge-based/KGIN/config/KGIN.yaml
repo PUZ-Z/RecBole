@@ -11,3 +11,35 @@ load_col:
     inter: [user_id, item_id]
     kg: [head_id, relation_id, tail_id]
     link: [item_id, entity_id]
+
+# KGIN 하이퍼파라미터
+embedding_size: 64
+n_factors: 4
+context_hops: 3
+reg_weight: 1e-5
+sim_regularity: 1e-5
+ind: distance  
+
+learner: adam
+learning_rate: 1e-4
+train_batch_size: 1024
+epochs: 1000 
+
+stopping_step: 10
+
+# Negative sampling
+train_neg_sample_args:
+    distribution: uniform
+    sample_num: 1
+
+# 평가 설정
+eval_args:
+    split: {'RS': [0.7, 0.1, 0.2]}
+    order: RO
+    mode: full
+    group_by: user
+
+metrics: ['Recall', 'NDCG', 'Hit', 'Precision']
+topk: 10
+valid_metric: Recall@10
+valid_metric_bigger: True
