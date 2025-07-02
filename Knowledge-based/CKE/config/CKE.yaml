@@ -11,3 +11,25 @@ load_col:
     inter: [user_id, item_id]
     kg: [head_id, relation_id, tail_id]
     link: [item_id, entity_id]
+
+# 평가 설정
+eval_args:
+    split: {'RS': [0.7, 0.1, 0.2]}
+    order: RO
+    mode: full
+    group_by: user
+
+
+metrics: ['Recall', 'NDCG', 'Hit', 'Precision']
+topk: 10
+valid_metric: Recall@10
+
+# CKE 하이퍼파라미터
+embedding_size: 100
+kg_embedding_size: 100
+reg_weights: [0.005, 0.001]
+learner: sgd
+learning_rate: 0.001
+train_batch_size: 1
+stopping_step: 10
+epochs: 300
